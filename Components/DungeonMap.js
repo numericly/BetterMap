@@ -140,9 +140,9 @@ class DungeonMap {
 					 this.dungeonStart = Math.floor(Date.now() / 1000)
 				}).setCriteria("Mort: Here, I found this map when I first entered the dungeon").setContains();
 
-        // this.triggers.push(register("command", () => {
-        //     this.roomsArr.forEach(room => ChatLib.chat(room.toString()))
-        // }).setName("sayrooms"))
+        //this.triggers.push(register("command", () => {
+            //this.roomsArr.forEach(room => ChatLib.chat(room.toString()))
+        //}).setName("sayrooms"))
 
         this.triggers.push(register("chat", () => {
             this.dungeonFinished = true
@@ -216,11 +216,11 @@ class DungeonMap {
             this.scanFirstDeathForSpiritPet(player);
         }).setChatCriteria("&r&c ☠ ${info} became a ghost&r&7.&r"));
 
-        this.triggers.push(register("chat", (info) => {
+        this.triggers.push(register("chat", () => {
             this.roomsArr.forEach(r => {
                 if (r.type !== Room.BLOOD) return
 
-                r.checkmarkState = Room.CLEARED
+                r.checkmarkState = Checkmark.WHITE
                 this.markChanged()
             })
         }).setChatCriteria("[BOSS] The Watcher: That will be enough for now."))
@@ -1020,8 +1020,13 @@ class DungeonMap {
 
             // White, green, failed checkmarks
             if (newCheck !== Checkmark.GRAY && newCheck !== room.checkmarkState && newCheck !== Checkmark.NONE) {
-                room.checkmarkState = newCheck
-                this.markChanged()
+                if(room.type !== Room.BLOOD){
+                    room.checkmarkState = newCheck
+                    this.markChanged()
+                } else if(newCheck === Checkmark.GREEN){
+                    room.checkmarkState = newCheck
+                    this.markChanged()
+                } 
             }
 
             // Room type changed
