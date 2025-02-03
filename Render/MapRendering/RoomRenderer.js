@@ -162,7 +162,7 @@ class RoomRenderer {
         let x = (context.roomGap / 2 + context.blockSize * location.arrayX + context.roomSize / 2 + context.borderWidth + context.paddingLeft) / context.getImageSize(dungeon.floor)
         let y = (context.roomGap / 2 + context.blockSize * location.arrayY + context.roomSize / 2 + context.borderWidth + context.paddingTop) / context.getImageSize(dungeon.floor)
 
-        x = context.posX + x * context.size + context.borderWidth
+        x = (context.posX + x * context.size + context.borderWidth) + context.offset / 2
         y = context.posY + y * (context.size - context.borderWidth) + context.borderWidth
 
         let scale = context.size / 250 * context.iconScale / 8
@@ -230,7 +230,7 @@ class RoomRenderer {
             let x = (context.roomGap / 2 + context.blockSize * location[0] + context.roomSize / 2 + context.borderWidth + context.paddingLeft) / context.getImageSize(dungeon.floor)
             let y = (context.roomGap / 2 + context.blockSize * location[1] + context.roomSize / 2 + context.borderWidth + context.paddingTop) / context.getImageSize(dungeon.floor)
 
-            x = context.posX + x * context.size + context.borderWidth
+            x = (context.posX + x * context.size + context.borderWidth) + context.offset / 2
             y = context.posY + y * (context.size - context.borderWidth) + context.borderWidth
 
             let textScale = context.size / 175 * context.textScale / 8
@@ -290,7 +290,7 @@ class RoomRenderer {
             let x = (context.roomGap / 2 + context.blockSize * location[0] + context.roomSize / 2 + context.borderWidth + context.paddingLeft) / context.getImageSize(dungeon.floor)
             let y = (context.roomGap / 2 + context.blockSize * location[1] + context.roomSize / 2 + context.borderWidth + context.paddingTop) / context.getImageSize(dungeon.floor)
 
-            x = context.posX + x * context.size + context.borderWidth
+            x = (context.posX + x * context.size + context.borderWidth) + context.offset / 2
             y = context.posY + y * (context.size - context.borderWidth) + context.borderWidth
 
             let scale = context.size / 250 * context.textScale / 8

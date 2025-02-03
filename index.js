@@ -369,3 +369,7 @@ register("renderWorld", () => {
 //     DungeonRoomData.reloadData();
 //     currentDungeonMap.getCurrentRoom().roomId = currentDungeonMap.getCurrentRoom().roomId;
 // }).setName('reloadroomdata');
+
+register('command', () => {
+    ChatLib.chat(DataLoader.dungeonFloor)
+}).setName('getfloor')
