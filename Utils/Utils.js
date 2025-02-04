@@ -6,14 +6,14 @@ import DataLoader from "./DataLoader"
  */
 
 export const offset  = (() => {
-    if (!DataLoader.dungeonFloor) return
+    if (!DataLoader.dungeonFloor) return 0
     const floor = DataLoader.dungeonFloor
     if (floor == "F1") return 25
     return 0
 });
 
 export const oscale = (() => {
-    if (!DataLoader.dungeonFloor) return
+    if (!DataLoader.dungeonFloor) return 1
     const floor = DataLoader.dungeonFloor
 
     if (floor == "E") return 47/32
