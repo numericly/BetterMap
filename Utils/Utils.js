@@ -1,29 +1,26 @@
 import DataLoader from "./DataLoader"
 
-/**
- * @param {Number} id id of the line that should be changed 
- * @param {String} line text that the line should be changed to
- */
-
-export const offset  = (() => {
-    if (!DataLoader.dungeonFloor) return 0
-    const floor = DataLoader.dungeonFloor
-    if (floor == "F1") return 25
-    return 0
-});
-
 export const oscale = (() => {
     if (!DataLoader.dungeonFloor) return 1
     const floor = DataLoader.dungeonFloor
 
-    if (floor == "E") return 47/32
+    // The max dungeon size is 6x6
+    // Lower floors contain smaller dungeons
+    // Entrance is only a 4x4 dungeon, so we need to scale the rooms by the inverse of 4/6
+    // To make them fill the entire map area, which is 6/4.
+    // The same goes for the other non 6x6 dungeons
+    if (floor == "E") return 6/4
     if (floor == "F1") return 6/5
-    if (floor == "F2") return 47/40
-    if (floor == "F3") return 47/40
+    if (floor == "F2") return 6/5
+    if (floor == "F3") return 6/5
 
     return 1
 });
 
+/**
+ * @param {Number} id id of the line that should be changed 
+ * @param {String} line text that the line should be changed to
+ */
 export function changeScoreboardLine(id, line) {
     //                                  getScoreboard
     let scoreboard = World.getWorld().func_96441_U();

@@ -5,7 +5,7 @@ import RenderContext from "../Render/RenderContext.js"
 import Position from "../Utils/Position.js"
 import RoomComponent from "../Utils/RoomComponent.js"
 import DataLoader from "../Utils/DataLoader.js"
-import { dungeonOffsetX, dungeonOffsetY, getSBID, oscale, offset } from "../Utils/Utils.js"
+import { dungeonOffsetX, dungeonOffsetY, getSBID, oscale } from "../Utils/Utils.js"
 import { fetch } from "../Utils/networkUtils.js"
 
 const DefaultVertexFormats = Java.type("net.minecraft.client.renderer.vertex.DefaultVertexFormats")
@@ -243,8 +243,8 @@ class MapPlayer {
         let x2 = (renderContext.roomGap / 2 + renderContext.blockSize * arrayX + renderContext.roomSize / 2 + renderContext.paddingLeft) / renderContext.getImageSize(dungeon.floor)
         let y2 = (renderContext.roomGap / 2 + renderContext.blockSize * arrayY + renderContext.roomSize / 2 + renderContext.paddingTop) / renderContext.getImageSize(dungeon.floor)
 
-        x2 = x + x2 * renderContext.size + renderContext.borderWidth
-        y2 = y + y2 * renderContext.size + renderContext.borderWidth
+        x2 = x + x2 * renderContext.size * oscale() + renderContext.borderWidth
+        y2 = y + y2 * renderContext.size * oscale() + renderContext.borderWidth
 
         return [x2, y2]
     }
@@ -268,10 +268,7 @@ class MapPlayer {
         x2 = overrideX || x2
         y2 = overrideY || y2
 
-        x2 = x2 * oscale()
-        y2 = y2 * oscale()
-
-        this.drawAt(x2 + rx + offset() / 2, y2 + ry, rw, rh, renderContext.showHeads === "icons" || renderContext.showHeads === 'self-icon' && this.username === Player.getName(), this.yaw.get(), renderContext.headBorder !== 'none' ? renderContext.headBorderWidth : 0)
+        this.drawAt(x2 + rx / 2, y2 + ry, rw, rh, renderContext.showHeads === "icons" || renderContext.showHeads === 'self-icon' && this.username === Player.getName(), this.yaw.get(), renderContext.headBorder !== 'none' ? renderContext.headBorderWidth : 0)
 
         let showNametag = renderContext.playerNames === "always"
 

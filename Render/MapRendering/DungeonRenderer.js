@@ -6,7 +6,7 @@ import renderLibs from "../../../guimanager/renderLibs";
 import DungeonMap from "../../Components/DungeonMap";
 import RenderContext from "./../RenderContext";
 import MapTab from "../MapTab";
-import { offset, oscale } from "../../Utils/Utils";
+import { oscale } from "../../Utils/Utils";
 
 class DungeonRenderer extends MapTab {
     constructor(mapRenderer) {
@@ -28,8 +28,8 @@ class DungeonRenderer extends MapTab {
         let graphics = image.createGraphics();
 
         // Shift border + padding so less math involved
-        graphics.translate(renderContext.paddingLeft + renderContext.borderWidth + offset(), renderContext.paddingTop + renderContext.borderWidth);
-        graphics.scale( oscale(), oscale())
+        graphics.translate(renderContext.paddingLeft + renderContext.borderWidth, renderContext.paddingTop + renderContext.borderWidth);
+        graphics.scale(oscale(), oscale())
 
         // Render all doors
         // Rendering before rooms that way rooms cover it as there is 1 specific situation where early dungeon will put a room in the middle of an L shape
