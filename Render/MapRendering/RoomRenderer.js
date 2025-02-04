@@ -159,11 +159,11 @@ class RoomRenderer {
 
         let location = room.components[0]
 
-        let x = (context.roomGap / 2 + context.blockSize * location.arrayX + context.roomSize / 2 + context.borderWidth + context.paddingLeft) / context.getImageSize(dungeon.floor)
-        let y = (context.roomGap / 2 + context.blockSize * location.arrayY + context.roomSize / 2 + context.borderWidth + context.paddingTop) / context.getImageSize(dungeon.floor)
+        let x = (context.roomGap / 2 + context.blockSize * location.arrayX + context.roomSize / 2 + context.borderWidth + context.paddingLeft) / context.getImageSize(dungeon.floor) * oscale()
+        let y = (context.roomGap / 2 + context.blockSize * location.arrayY + context.roomSize / 2 + context.borderWidth + context.paddingTop) / context.getImageSize(dungeon.floor) * oscale()
 
-        x = ((context.posX + x * context.size + context.borderWidth)) * oscale()
-        y = (context.posY + y * (context.size - context.borderWidth) + context.borderWidth) * oscale()
+        x = ((context.posX + x * context.size + context.borderWidth))
+        y = (context.posY + y * (context.size - context.borderWidth) + context.borderWidth)
 
         let scale = context.size / 250 * context.iconScale / 8
         let textScale = (context.size / 250 * context.textScale / 8) * oscale()
@@ -227,11 +227,11 @@ class RoomRenderer {
             if (context.checkmarkCompleteRooms && room.checkmarkState === Checkmark.GREEN) return;
             if (context.showSecretCount === 'hasSecrets' && !room.maxSecrets > 0) return;
 
-            let x = (context.roomGap / 2 + context.blockSize * location[0] + context.roomSize / 2 + context.borderWidth + context.paddingLeft) / context.getImageSize(dungeon.floor)
-            let y = (context.roomGap / 2 + context.blockSize * location[1] + context.roomSize / 2 + context.borderWidth + context.paddingTop) / context.getImageSize(dungeon.floor)
+            let x = (context.roomGap / 2 + context.blockSize * location[0] + context.roomSize / 2 + context.borderWidth + context.paddingLeft) / context.getImageSize(dungeon.floor) * oscale()
+            let y = (context.roomGap / 2 + context.blockSize * location[1] + context.roomSize / 2 + context.borderWidth + context.paddingTop) / context.getImageSize(dungeon.floor) * oscale()
 
-            x = ((context.posX + x * context.size + context.borderWidth)) * oscale()
-            y = (context.posY + y * (context.size - context.borderWidth) + context.borderWidth) * oscale()
+            x = ((context.posX + x * context.size + context.borderWidth))
+            y = (context.posY + y * (context.size - context.borderWidth) + context.borderWidth)
 
             let textScale = (context.size / 175 * context.textScale / 8) * oscale()
 
@@ -287,11 +287,11 @@ class RoomRenderer {
                 if (room.maxSecrets > 0 && (!context.checkmarkCompleteRooms || room.checkmarkState !== Checkmark.GREEN)) return;
             }
 
-            let x = (context.roomGap / 2 + context.blockSize * location[0] + context.roomSize / 2 + context.borderWidth + context.paddingLeft) / context.getImageSize(dungeon.floor)
-            let y = (context.roomGap / 2 + context.blockSize * location[1] + context.roomSize / 2 + context.borderWidth + context.paddingTop) / context.getImageSize(dungeon.floor)
+            let x = (context.roomGap / 2 + context.blockSize * location[0] + context.roomSize / 2 + context.borderWidth + context.paddingLeft) / context.getImageSize(dungeon.floor) * oscale()
+            let y = (context.roomGap / 2 + context.blockSize * location[1] + context.roomSize / 2 + context.borderWidth + context.paddingTop) / context.getImageSize(dungeon.floor) * oscale()
 
-            x = ((context.posX + x * context.size + context.borderWidth)) * oscale()
-            y = (context.posY + y * (context.size - context.borderWidth) + context.borderWidth) * oscale()
+            x = ((context.posX + x * context.size + context.borderWidth))
+            y = (context.posY + y * (context.size - context.borderWidth) + context.borderWidth)
 
             let scale = context.size / 250 * context.textScale / 8 * oscale()
             let text = room.name?.split(" ") || ["???"]
