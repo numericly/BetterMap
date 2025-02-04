@@ -6,7 +6,7 @@ import renderLibs from "../../../guimanager/renderLibs";
 import DungeonMap from "../../Components/DungeonMap";
 import RenderContext from "./../RenderContext";
 import MapTab from "../MapTab";
-import { oscale } from "../../Utils/Utils";
+import { oscale, offset } from "../../Utils/Utils";
 
 class DungeonRenderer extends MapTab {
     constructor(mapRenderer) {
@@ -28,7 +28,7 @@ class DungeonRenderer extends MapTab {
         let graphics = image.createGraphics();
 
         // Shift border + padding so less math involved
-        graphics.translate(renderContext.paddingLeft + renderContext.borderWidth, renderContext.paddingTop + renderContext.borderWidth);
+        graphics.translate(renderContext.paddingLeft + renderContext.borderWidth + offset(), renderContext.paddingTop + renderContext.borderWidth);
         graphics.scale(oscale(), oscale())
 
         // Render all doors

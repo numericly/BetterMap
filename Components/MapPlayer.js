@@ -5,7 +5,7 @@ import RenderContext from "../Render/RenderContext.js"
 import Position from "../Utils/Position.js"
 import RoomComponent from "../Utils/RoomComponent.js"
 import DataLoader from "../Utils/DataLoader.js"
-import { dungeonOffsetX, dungeonOffsetY, getSBID, oscale } from "../Utils/Utils.js"
+import { dungeonOffsetX, dungeonOffsetY, getSBID, oscale, offset } from "../Utils/Utils.js"
 import { fetch } from "../Utils/networkUtils.js"
 
 const DefaultVertexFormats = Java.type("net.minecraft.client.renderer.vertex.DefaultVertexFormats")
@@ -258,7 +258,7 @@ class MapPlayer {
 
         if (!dungeon) return
 
-        let rx = -headScale / 2 * size / 100 // Offsetting to the left by half image width,
+        let rx = -headScale / 2 * size / 100 + offset()// Offsetting to the left by half image width,
         let ry = -headScale / 2 * size / 100 // Image width = headscale* size /100 (size = map size eg 100px, dividing by 100 so its exactly headscale when mapsize is 100)
         let rw = (headScale * size / 100) * oscale()
         let rh = (headScale * size / 100) * oscale()
