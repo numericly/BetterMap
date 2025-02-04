@@ -64,8 +64,6 @@ class RenderContext {
         this.paddingTop = 0;
         this.paddingLeft = 0;
 
-        this.offset = 20;
-
         this.borderWidth = 2;
 
         this.onDestroys = []

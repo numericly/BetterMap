@@ -39,6 +39,7 @@ register("step", () => {
             currentDungeonMap = new DungeonMap(DataLoader.dungeonFloor, deadPlayers)
             CurrentSettings.currentDungeon = currentDungeonMap
         }
+
     } else {
         if (currentDungeonMap) { // Left dungeon, clear map data
             currentDungeonMap.destroy();
