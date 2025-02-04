@@ -1436,7 +1436,7 @@ class DungeonMap {
 
         // Mouse somewhere on map
 
-        let worldX = (((cursorX - x - context.borderWidth) / ((context.size + offset()) * oscale()) * context.getImageSize(this.floor) - context.paddingLeft - context.roomSize / 2 - context.roomGap / 2 ) / context.blockSize + 0.5) * 32 - 200
+        let worldX = (((cursorX - x - context.borderWidth) / ((context.size) * oscale()) * context.getImageSize(this.floor) - context.paddingLeft - context.roomSize / 2 - context.roomGap / 2 ) / context.blockSize + 0.5) * 32 - 200
         let worldY = (((cursorY - y - context.borderWidth) / (context.size * oscale())* context.getImageSize(this.floor) - context.paddingTop - context.roomSize / 2 - context.roomGap / 2 ) / context.blockSize + 0.5) * 32 - 200
 
         if (((worldX + 200) / 32) < 0) return
