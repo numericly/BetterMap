@@ -1017,7 +1017,7 @@ class DungeonMap {
                 // ChatLib.chat(`&bCreated new room &3${room}`)
                 this.addRoom(room)
             }
-
+            // eclipse was here :D
             // White, green, failed checkmarks
             if (newCheck !== Checkmark.GRAY && newCheck !== room.checkmarkState && newCheck !== Checkmark.NONE) {
                 if(room.type !== Room.BLOOD){
