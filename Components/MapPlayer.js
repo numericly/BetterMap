@@ -258,7 +258,7 @@ class MapPlayer {
 
         if (!dungeon) return
 
-        let rx = -headScale / 2 * size / 100 + offset()// Offsetting to the left by half image width,
+        let rx = -headScale / 2 * size / 100 + offset() / 2 // Offsetting to the left by half image width,
         let ry = -headScale / 2 * size / 100 // Image width = headscale* size /100 (size = map size eg 100px, dividing by 100 so its exactly headscale when mapsize is 100)
         let rw = (headScale * size / 100) * oscale()
         let rh = (headScale * size / 100) * oscale()
