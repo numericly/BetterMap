@@ -1,10 +1,8 @@
 import DataLoader from "./DataLoader";
 
-export const oscale = () => {
-    if (!DataLoader.dungeonFloor) return 1
+export const oscale = (floor) => {
+    if (!floor) return 1
     if (!DataLoader.isInDungeon) return 1
-
-    const floor = DataLoader.dungeonFloor
 
     // The max dungeon size is 6x6
     // Lower floors contain smaller dungeons
@@ -19,10 +17,9 @@ export const oscale = () => {
     return 1;
 };
 
-export const offset = () => {
-    if (!DataLoader.dungeonFloor) return 0
+export const offset = (floor) => {
+    if (!floor) return 0
     if (!DataLoader.isInDungeon) return 0
-    const floor = DataLoader.dungeonFloor
 
     // Center F1 :D
     if (floor == "F1") return 25

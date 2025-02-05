@@ -243,8 +243,8 @@ class MapPlayer {
         let x2 = (renderContext.roomGap / 2 + renderContext.blockSize * arrayX + renderContext.roomSize / 2 + renderContext.paddingLeft) / renderContext.getImageSize(dungeon.floor)
         let y2 = (renderContext.roomGap / 2 + renderContext.blockSize * arrayY + renderContext.roomSize / 2 + renderContext.paddingTop) / renderContext.getImageSize(dungeon.floor)
 
-        x2 = x + x2 * renderContext.size * oscale() + renderContext.borderWidth
-        y2 = y + y2 * renderContext.size * oscale() + renderContext.borderWidth
+        x2 = x + x2 * renderContext.size * oscale(dungeon.floor) + renderContext.borderWidth
+        y2 = y + y2 * renderContext.size * oscale(dungeon.floor) + renderContext.borderWidth
 
         return [x2, y2]
     }
@@ -258,10 +258,10 @@ class MapPlayer {
 
         if (!dungeon) return
 
-        let rx = -headScale / 2 * size / 100 + offset() / 2 // Offsetting to the left by half image width,
+        let rx = -headScale / 2 * size / 100 + offset(dungeon.floor) / 2 // Offsetting to the left by half image width,
         let ry = -headScale / 2 * size / 100 // Image width = headscale* size /100 (size = map size eg 100px, dividing by 100 so its exactly headscale when mapsize is 100)
-        let rw = (headScale * size / 100) * oscale()
-        let rh = (headScale * size / 100) * oscale()
+        let rw = (headScale * size / 100) * oscale(dungeon.floor)
+        let rh = (headScale * size / 100) * oscale(dungeon.floor)
 
 
         let [x2, y2] = this.getRenderLocation(renderContext, dungeon)

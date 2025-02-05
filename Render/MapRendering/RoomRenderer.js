@@ -159,14 +159,14 @@ class RoomRenderer {
 
         let location = room.components[0]
 
-        let x = (context.roomGap / 2 + context.blockSize * location.arrayX + context.roomSize / 2 + context.borderWidth + context.paddingLeft + offset()) / context.getImageSize(dungeon.floor) * oscale()
-        let y = (context.roomGap / 2 + context.blockSize * location.arrayY + context.roomSize / 2 + context.borderWidth + context.paddingTop) / context.getImageSize(dungeon.floor) * oscale()
+        let x = (context.roomGap / 2 + context.blockSize * location.arrayX + context.roomSize / 2 + context.borderWidth + context.paddingLeft + offset(dungeon.floor)) / context.getImageSize(dungeon.floor) * oscale(dungeon.floor)
+        let y = (context.roomGap / 2 + context.blockSize * location.arrayY + context.roomSize / 2 + context.borderWidth + context.paddingTop) / context.getImageSize(dungeon.floor) * oscale(dungeon.floor)
 
         x = ((context.posX + x * context.size + context.borderWidth)) 
         y = (context.posY + y * (context.size - context.borderWidth) + context.borderWidth)
 
         let scale = context.size / 250 * context.iconScale / 8
-        let textScale = (context.size / 250 * context.textScale / 8) * oscale()
+        let textScale = (context.size / 250 * context.textScale / 8) * oscale(dungeon.floor)
         if (context.puzzleNames === "text" || (context.puzzleNames === 'icon' && context.tickStyle === 'roomnames' && (room.checkmarkState === Checkmark.GREEN || room.checkmarkState === Checkmark.FAILED)) || context.puzzleNames === 'none' && context.tickStyle === 'roomnames') {
             let text = room.name?.split(" ") || ["???"]
             let textColor = ""
@@ -227,13 +227,13 @@ class RoomRenderer {
             if (context.checkmarkCompleteRooms && room.checkmarkState === Checkmark.GREEN) return;
             if (context.showSecretCount === 'hasSecrets' && !room.maxSecrets > 0) return;
 
-            let x = (context.roomGap / 2 + context.blockSize * location[0] + context.roomSize / 2 + context.borderWidth + context.paddingLeft + offset()) / context.getImageSize(dungeon.floor) * oscale()
-            let y = (context.roomGap / 2 + context.blockSize * location[1] + context.roomSize / 2 + context.borderWidth + context.paddingTop) / context.getImageSize(dungeon.floor) * oscale()
+            let x = (context.roomGap / 2 + context.blockSize * location[0] + context.roomSize / 2 + context.borderWidth + context.paddingLeft + offset(dungeon.floor)) / context.getImageSize(dungeon.floor) * oscale(dungeon.floor)
+            let y = (context.roomGap / 2 + context.blockSize * location[1] + context.roomSize / 2 + context.borderWidth + context.paddingTop) / context.getImageSize(dungeon.floor) * oscale(dungeon.floor)
 
             x = ((context.posX + x * context.size + context.borderWidth))
             y = (context.posY + y * (context.size - context.borderWidth) + context.borderWidth)
 
-            let textScale = (context.size / 175 * context.textScale / 8) * oscale()
+            let textScale = (context.size / 175 * context.textScale / 8) * oscale(dungeon.floor)
 
             if (room.maxSecrets === 10 && !context.centerCheckmarks) x += 12 * textScale
 
@@ -287,13 +287,13 @@ class RoomRenderer {
                 if (room.maxSecrets > 0 && (!context.checkmarkCompleteRooms || room.checkmarkState !== Checkmark.GREEN)) return;
             }
 
-            let x = (context.roomGap / 2 + context.blockSize * location[0] + context.roomSize / 2 + context.borderWidth + context.paddingLeft + offset()) / context.getImageSize(dungeon.floor) * oscale()
-            let y = (context.roomGap / 2 + context.blockSize * location[1] + context.roomSize / 2 + context.borderWidth + context.paddingTop) / context.getImageSize(dungeon.floor) * oscale()
+            let x = (context.roomGap / 2 + context.blockSize * location[0] + context.roomSize / 2 + context.borderWidth + context.paddingLeft + offset(dungeon.floor)) / context.getImageSize(dungeon.floor) * oscale(dungeon.floor)
+            let y = (context.roomGap / 2 + context.blockSize * location[1] + context.roomSize / 2 + context.borderWidth + context.paddingTop) / context.getImageSize(dungeon.floor) * oscale(dungeon.floor)
 
             x = ((context.posX + x * context.size + context.borderWidth))
             y = (context.posY + y * (context.size - context.borderWidth) + context.borderWidth)
 
-            let scale = context.size / 250 * context.textScale / 8 * oscale()
+            let scale = context.size / 250 * context.textScale / 8 * oscale(dungeon.floor)
             let text = room.name?.split(" ") || ["???"]
             let textColor = ""
             switch (room.checkmarkState) {
