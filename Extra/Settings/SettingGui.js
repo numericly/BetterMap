@@ -299,6 +299,8 @@ class SettingGui {
 
         this.addToggle("Force paul +10 score", "forcePaul", this.currentSettings.forcePaul)[1].setLore(["Paul score bonus will get auto-detected when paul is mayor", "But it wont be auto detected from jerry-paul"])
 
+        this.addToggle("Force spirit pet", "forceSpirit", this.currentSettings.forceSpirit)[1].setLore(["Wether to force the penalty reduction of spirit pet for the first death"])
+
         this.addDropdown("Broadcast score message", {
             "never": "Off",
             "automatic": "Relevant score depending on your floor",

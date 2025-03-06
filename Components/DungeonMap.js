@@ -1212,10 +1212,11 @@ class DungeonMap {
         }
         time = Math.round(time)
 
+        let deathPenalty = Math.max(0, deaths * 2 -  (this.firstDeathHadSpirit || settings.settings.forceSpirit)) // FirstDeathHadSpirit gets coerced to number (0 or 1)
+
         // Skill
         skill += ~~(completedRooms / totalRoomEstimate * 80) - unfinshedPuzzles * 10;
-        skill -= deaths * 2;
-        if (this.firstDeathHadSpirit) skill += 1
+        skill -= deathPenalty;
 
         // Cant physically drop below 20 score, no matter what
         skill = Math.max(0, skill);
@@ -1232,8 +1233,6 @@ class DungeonMap {
         let totalCryptCount = this.roomsArr.reduce((prev, room) => prev + (room.data?.crypts || 0), 0);
 
         let totalSecrets = Math.round(collectedSecrets / (secrets / 100))
-
-        let deathPenalty = deaths * 2 - this.firstDeathHadSpirit // FirstDeathHadSpirit gets coerced to number (0 or 1)
 
         let minSecrets = Math.ceil(totalSecrets * requiredSecrets / 100 * ((40 - bonus + deathPenalty) / 40))
 

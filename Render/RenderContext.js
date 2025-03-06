@@ -34,6 +34,7 @@
  * @property {Boolean} boxDoors - Put a box around wither doors
  * @property {Boolean} spiritLeapOverlay - Show an overlay on the spirit leap gui
  * @property {Boolean} forcePaul - Wether to force enable the +10 score for paul (eg if jerry mayor)
+ * @property {Boolean} forceSpirit - Wether to force the penalty reduction of spirit pet for the first death
  * @property {Boolean} clearedRoomInfo - Show a summory of what rooms people cleared after run finishes
  * @property {Boolean} devInfo - Wether to show def info in various places in the map
  * @property {[r:Number, g:Number, b:Number, a:number]} mapBorderColor - The RGBO value of the map border color
@@ -185,6 +186,10 @@ class RenderContext {
 
     get forcePaul() {
         return this.settings.forcePaul
+    }
+
+    get forceSpirit() {
+        return this.settings.forceSpirit
     }
 
     get showSecrets() {
@@ -443,6 +448,7 @@ class RenderContext {
         showSecrets = false,
         spiritLeapOverlay = false,
         forcePaul = false,
+        forceSpirit = false,
         clearedRoomInfo = true,
         devInfo = false,
         boxDoors = true,
@@ -504,6 +510,7 @@ class RenderContext {
             showSecrets,
             spiritLeapOverlay,
             forcePaul,
+            forceSpirit,
             clearedRoomInfo,
             devInfo,
             boxDoors,
